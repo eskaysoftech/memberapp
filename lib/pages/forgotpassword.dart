@@ -215,7 +215,7 @@ class _ForgotPwdState extends State<ForgotPwd> {
                   ),
                 ),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 35, 0, 15),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, topMargin, 0, bottomMargin),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,

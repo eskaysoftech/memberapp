@@ -214,14 +214,14 @@ class _LoginState extends State<Login> {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0, 35, 0, 15),
+            padding: EdgeInsetsDirectional.fromSTEB(0, topMargin, 0, bottomMargin),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Container(
                     width: double.infinity,
-                    height: (height - (45 + 15 + 35)),
+                    height: (height - (45 + bottomMargin + topMargin)),
                     decoration: const BoxDecoration(),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,

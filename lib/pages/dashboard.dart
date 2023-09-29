@@ -15,6 +15,7 @@ import 'package:intl/intl.dart';
 import 'package:page_transition/page_transition.dart';
 
 import '../components/fonts.dart';
+import '../localstore/systemsetup/appsettings.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -102,7 +103,7 @@ class _DashboardState extends State<Dashboard> {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(15, 35, 15, 15),
+            padding:  EdgeInsetsDirectional.fromSTEB(15, topMargin, 15, bottomMargin),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
