@@ -135,7 +135,7 @@ class _AffiliationState extends State<Affiliation> {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(15, 35, 15, 15),
+            padding: EdgeInsetsDirectional.fromSTEB(15, topMargin, 15, bottomMargin),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.end,

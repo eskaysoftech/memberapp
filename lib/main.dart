@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'package:path_provider/path_provider.dart' as path_provide;
 
 import 'localstore/global_var.dart';
 import 'localstore/logindetails.dart';
+import 'localstore/systemsetup/appsettings.dart';
 import 'login.dart';
 
 void main() async {
@@ -15,6 +17,10 @@ void main() async {
       await path_provide.getApplicationDocumentsDirectory();
   Hive.init(appDocumentDirectory.path);
   Hive.registerAdapter(LogindetailsAdapter());
+  if(Platform.isIOS) {
+    topMargin = 55.0;
+    bottomMargin = 25.0;
+  }
   runApp(const MyApp());
 }
 

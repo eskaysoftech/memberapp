@@ -152,7 +152,7 @@ class _ChangePwdState extends State<ChangePwd> {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0, 35, 0, 15),
+            padding:  EdgeInsetsDirectional.fromSTEB(0, topMargin, 0, bottomMargin),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,

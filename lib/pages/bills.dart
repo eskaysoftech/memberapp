@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:hive/hive.dart';
 import 'package:memberapp/components/notifypanel.dart';
 import 'package:memberapp/functions/bill_fn.dart';
 import 'package:memberapp/pages/view_bill.dart';
@@ -23,6 +24,8 @@ class _BillsState extends State<Bills> {
   TextStyle ed14 = fontFile(14, Color(0xFFEDEDED), 0, FontWeight.w600);
   TextStyle ed16 = fontFile(16, Color(0xFFEDEDED), 0, FontWeight.bold);
   TextStyle w18 = fontWithheight(18, Color(0xFFFFFFFF), 0, FontWeight.w800);
+  TextStyle chbt = fontFile(18, Color(0xFF000000), 1, FontWeight.bold);
+  bool clubbillis = true;
 
   @override
   void initState() {
@@ -131,7 +134,7 @@ class _BillsState extends State<Bills> {
             ),
           ),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(15, 35, 15, 15),
+            padding: EdgeInsetsDirectional.fromSTEB(15, topMargin, 15, bottomMargin),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -220,6 +223,66 @@ class _BillsState extends State<Bills> {
                             child: CircularProgressIndicator(
                         color: Colors.yellow,
                       ))),
+                      Padding(padding: EdgeInsetsDirectional.only(bottom: 10),child: 
+                      Container(
+                        width:double.infinity,
+                        height: 55,
+                        decoration: BoxDecoration(
+                          
+                        ),
+                        child: Row(
+                          children: [
+                            Expanded(child: Padding(padding: EdgeInsetsDirectional.only(end: 10),child:TextButton(
+                               onPressed: (){
+                                setState(() {
+                                  clubbillis = true;
+                                });
+                               },
+                               style: TextButton.styleFrom(
+                                backgroundColor: clubbillis ? Colors.grey : Color(0xFF3C3C3C),
+                                foregroundColor: Colors.black,
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                elevation: 16,
+                                padding: EdgeInsets.zero
+                               ),
+                              child: Container(
+                                height: double.infinity,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text('CLUB BILLS',style: chbt,)
+                                  ],
+                                ),
+                              ),
+                            ))),
+                            Expanded(child: Padding(padding: EdgeInsetsDirectional.only(end: 10),child:TextButton(
+                               onPressed: (){
+                                setState(() {
+                                  clubbillis = false;
+                                });},
+                               style: TextButton.styleFrom(
+                                backgroundColor: !clubbillis ? Colors.grey : Color(0xFF3C3C3C),
+                                foregroundColor: Colors.black,
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                elevation: 16,
+                                padding: EdgeInsets.zero
+                               ),
+                              child: Container(
+                                height: double.infinity,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text('OTHER BILLS',style: chbt,)
+                                  ],
+                                ),
+                              ),
+                            ))),
+                          ],
+                        ),
+                      ),),
+                      
               ],
             ),
           ),

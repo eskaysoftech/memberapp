@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:memberapp/localstore/systemsetup/appsettings.dart';
 import '../components/fonts.dart';
 import '../functions/app_func.dart';
 import '../functions/globaldata_fn.dart';
@@ -131,7 +132,7 @@ class _ActivitiesState extends State<Activities> {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(15, 35, 15, 15),
+            padding: EdgeInsetsDirectional.fromSTEB(15, topMargin, 15, bottomMargin),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.end,

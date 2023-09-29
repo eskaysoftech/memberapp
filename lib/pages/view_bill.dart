@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
 
 import '../components/fonts.dart';
@@ -191,7 +192,7 @@ class _ViewStatementState extends State<ViewStatement> {
                   ),
                   child: Container(
                     width: pagewidth > 1024 ? pagewidth * 0.50 : pagewidth,
-                    height: pageheight,
+                    height: pageheight ,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(2),
@@ -293,7 +294,7 @@ class _ViewStatementState extends State<ViewStatement> {
                               width: pagewidth > 1024
                                   ? pagewidth * 0.50
                                   : pagewidth,
-                              height: pageheight - 280,
+                              height: pageheight - (Platform.isIOS ? 330 : 280),
                               child: Column(children: [
                                 Expanded(
                                     child: ListView(

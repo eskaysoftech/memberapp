@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+// import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 import '../components/fonts.dart';
+import '../localstore/systemsetup/appsettings.dart';
 
 class Webview extends StatefulWidget {
   final String url;
@@ -51,7 +53,7 @@ class _WebviewState extends State<Webview> {
             ),
           ),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(15, 35, 15, 15),
+            padding: EdgeInsetsDirectional.fromSTEB(15, topMargin, 15, bottomMargin),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.end,
