@@ -170,7 +170,8 @@ class _BillsState extends State<Bills> {
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
                           child: Text(
-                            'All Previous Bills',
+                            // 'All Previous Bills',
+                            '',
                             style: ed16,
                           ),
                         ),
@@ -178,7 +179,8 @@ class _BillsState extends State<Bills> {
                     ),
                     InkWell(
                         onTap: () {
-                          selectyear();
+                          clubbillis ?
+                          selectyear() : callMonthSelect(context, (){}, '2023', '09');
                         },
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
