@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import '../components/fonts.dart';
 import 'dart:convert';
 
+import '../components/notifypanel.dart';
 import '../functions/app_func.dart';
 import '../localstore/global_var.dart';
 import '../localstore/systemsetup/appsettings.dart';
@@ -318,7 +319,8 @@ class _StatementState extends State<Statement> {
             ),
           ),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(15, topMargin, 15, bottomMargin),
+            padding:
+                EdgeInsetsDirectional.fromSTEB(15, topMargin, 15, bottomMargin),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -440,7 +442,22 @@ class _StatementState extends State<Statement> {
                         Expanded(
                           child: InkWell(
                               onTap: () {
-                                selectdate(context, fromdt, 'F');
+                                // selectdate(context, fromdt, 'F');
+
+                                String monthdisp =
+                                    datetime('onlymonth', fromdt.toString());
+                                String month = fromdt.month.toString();
+                                String year = fromdt.year.toString();
+                                callMonthSelect(context,
+                                    (yearr, monthr, monthdispr) async {
+                                  Navigator.pop(context);
+                                  setState(() {
+                                    fromdt = DateTime(
+                                        double.parse(yearr).toInt(),
+                                        double.parse(monthr).toInt(),
+                                        1);
+                                  });
+                                }, year, month, monthdisp, 'Set');
                               },
                               child: Container(
                                 width: 100,
@@ -476,7 +493,20 @@ class _StatementState extends State<Statement> {
                         Expanded(
                           child: InkWell(
                             onTap: () {
-                              selectdate(context, todt, 'T');
+                              // selectdate(context, todt, 'T');
+
+                              String monthdisp =
+                                  datetime('onlymonth', todt.toString());
+                              String month = todt.month.toString();
+                              String year = todt.year.toString();
+                              callMonthSelect(context,
+                                  (yearr, monthr, monthdispr) async {
+                                Navigator.pop(context);
+                                setState(() {
+                                  todt = DateTime(double.parse(yearr).toInt(),
+                                      double.parse(monthr).toInt(), 1);
+                                });
+                              }, year, month, monthdisp, 'Set');
                             },
                             child: Container(
                                 width: 35,

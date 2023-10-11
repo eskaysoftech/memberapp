@@ -159,7 +159,8 @@ Future notifyPanel(BuildContext context, String type, String title, String msg,
       });
 }
 
-Future callMonthSelect(BuildContext context, Function completefn, String year, String month) {
+Future callMonthSelect(BuildContext context, Function completefn, String year,
+    String month, String monthdisp, String buttonname) {
   return showDialog(
       context: context,
       barrierColor: Colors.transparent,
@@ -169,8 +170,15 @@ Future callMonthSelect(BuildContext context, Function completefn, String year, S
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            MonthSelect(completefn: completefn,year: year, month: month,)
+            MonthSelect(
+              completefn: completefn,
+              year: year,
+              month: month,
+              monthdisp: monthdisp,
+              buttonname: buttonname,
+            )
           ],
         );
-      });;
+      });
+  ;
 }

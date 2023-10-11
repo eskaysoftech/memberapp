@@ -4,6 +4,7 @@ import 'package:memberapp/localstore/systemsetup/appsettings.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../components/fonts.dart';
+import '../components/notifypanel.dart';
 import '../localstore/global_var.dart';
 
 class Payments extends StatefulWidget {
@@ -26,17 +27,7 @@ class _PaymentsState extends State<Payments> {
   TextStyle dc18 = fontFile(18, Color(0xFFDCDCDC), 0, FontWeight.w600);
   TextStyle ed32 = fontFile(32, Color(0xFFEDEDED), 0, FontWeight.w600);
 
-  @override
-  void initState() {
-    super.initState();
-    getPayments();
-  }
-
-  @override
-  void dispose() {
-    _unfocusNode.dispose();
-    super.dispose();
-  }
+  DateTime todaydate = DateTime.now();
 
   DateTime selmonth = DateTime.now();
   bool dtchange = false;
@@ -106,6 +97,18 @@ class _PaymentsState extends State<Payments> {
 
   List paymentList = [];
   @override
+  void initState() {
+    super.initState();
+    getPayments();
+  }
+
+  @override
+  void dispose() {
+    _unfocusNode.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
@@ -135,7 +138,8 @@ class _PaymentsState extends State<Payments> {
             ),
           ),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(15, topMargin, 15, bottomMargin),
+            padding:
+                EdgeInsetsDirectional.fromSTEB(15, topMargin, 15, bottomMargin),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -292,7 +296,22 @@ class _PaymentsState extends State<Payments> {
                                 ),
                                 InkWell(
                                     onTap: () {
-                                      selectdate(context, selmonth);
+                                      String monthdisp = datetime(
+                                          'onlymonth', selmonth.toString());
+                                      String month = selmonth.month.toString();
+                                      String year = selmonth.year.toString();
+                                      callMonthSelect(context,
+                                          (yearr, monthr, monthdispr) async {
+                                        Navigator.pop(context);
+                                        setState(() {
+                                          selmonth = DateTime(
+                                              double.parse(yearr).toInt(),
+                                              double.parse(monthr).toInt(),
+                                              1);
+                                          dtchange = true;
+                                        });
+                                        getPayments();
+                                      }, year, month, monthdisp, 'Search');
                                     },
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(

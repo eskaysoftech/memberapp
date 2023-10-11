@@ -1,6 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+double getMl(container) {
+  Map calMl = {
+    "30": 0.5,
+    30: 0.5,
+    "60": 1.0,
+    60: 1.0,
+    "90": 1.5,
+    90: 1.5,
+    "180": 3.0,
+    180: 3.0,
+  };
+  return calMl[container] ?? 1.0;
+}
+
+double getMlQ(container, double qty) {
+  return (qty / getMl(container));
+}
+
 String datetime(tab, cudate) {
   String out = "";
   DateTime datetime;
@@ -39,6 +57,12 @@ String datetime(tab, cudate) {
     case "monthyear":
       out = DateFormat('yyyy').format(datetime);
       break;
+    case "onlymonth":
+      out = DateFormat('MMM').format(datetime);
+      break;
+    case "onlymonthword":
+      out = DateFormat('MM').format(datetime);
+      break;
     case "day":
       out = DateFormat('dd').format(datetime);
       break;
@@ -71,3 +95,33 @@ Future loadingscreen(BuildContext context) async {
             )),
           ));
 }
+
+
+
+// Future billPrinterMap(Map billdata, BuildContext context) async {
+//   final printerdata = Hive.box('printerdetails');
+//   var printer = printerdata.get('printer');
+//   if (printer != null && printer.toString() != '') {
+//     if (printer.toString().contains('192.168.')) {
+//       await wifisalesbill(billdata);
+//     } else {
+//       if (Platform.isWindows) {
+//         await windowsusbsalesbill(billdata);
+//       } else {
+//         await andriodsalesbill(billdata);
+//       }
+//     }
+//   } else {
+//     showDialog(
+//       context: context,
+//       builder: (context) => Dialog(
+//           child: Scaffold(
+//         appBar: AppBar(
+//           title: const Text('SALES BILL'),
+//         ),
+//         body:
+//             PdfPreview(build: (format) async => (await salesBillPdf(billdata))),
+//       )),
+//     );
+//   }
+// }
