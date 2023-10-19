@@ -799,8 +799,7 @@ class _BillsState extends State<Bills> {
                                 // ignore: use_build_context_synchronously
                                 showDialog(
                                   context: context,
-                                  builder: (context) => Dialog(
-                                      child: Scaffold(
+                                  builder: (context) => Scaffold(
                                     appBar: AppBar(
                                       title: const Text('SALES BILL'),
                                     ),
@@ -810,7 +809,7 @@ class _BillsState extends State<Bills> {
                                                 printMap['printMap'],
                                                 printMap['header'],
                                                 printMap['footer']))),
-                                  )),
+                                  ),
                                 );
                               },
                               child: Padding(
