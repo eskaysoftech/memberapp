@@ -98,6 +98,7 @@ class _LoginState extends State<Login> {
 
   Future validateUserId(String loginid) async {
     bool out = false;
+    //print(loginid);
     if (loginid != '') {
       if (loginid.contains('@')) {
         if (loginid.characters.where((c) => c == '@').length == 1) {
