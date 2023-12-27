@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:animated_splash_screen/animated_splash_screen.dart';
@@ -17,7 +16,7 @@ void main() async {
       await path_provide.getApplicationDocumentsDirectory();
   Hive.init(appDocumentDirectory.path);
   Hive.registerAdapter(LogindetailsAdapter());
-  if(Platform.isIOS) {
+  if (Platform.isIOS) {
     topMargin = 55.0;
     bottomMargin = 25.0;
   }
@@ -54,21 +53,29 @@ class _MyAppState extends State<MyApp> {
                       body: AnimatedSplashScreen(
                     duration: 2000,
                     splash: Center(
-                      child: clublogoimg != null &&
-                              clublogoimg.toString() != 'null' &&
-                              clublogoimg.toString() != ''
-                          ? Image.memory(
-                              base64Decode(clublogoimg.toString()),
-                              width: 250,
-                              height: 150,
-                            )
-                          : Image.asset(
-                              'media/logo.png',
-                              width: 250,
-                              height: 150,
-                              fit: BoxFit.contain,
-                            ),
+                      child: Image.asset(
+                        'media/logo.png',
+                        width: 250,
+                        height: 150,
+                        fit: BoxFit.contain,
+                      ),
                     ),
+                    // Center(
+                    //   child: clublogoimg != null &&
+                    //           clublogoimg.toString() != 'null' &&
+                    //           clublogoimg.toString() != ''
+                    //       ? Image.memory(
+                    //           base64Decode(clublogoimg.toString()),
+                    //           width: 250,
+                    //           height: 150,
+                    //         )
+                    //       : Image.asset(
+                    //           'media/logo.png',
+                    //           width: 250,
+                    //           height: 150,
+                    //           fit: BoxFit.contain,
+                    //         ),
+                    // ),
                     splashIconSize: double.infinity,
                     nextScreen: const Login(),
                     // nextScreen: MemberList(),

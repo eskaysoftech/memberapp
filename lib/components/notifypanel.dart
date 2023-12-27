@@ -1,5 +1,6 @@
 import 'package:memberapp/components/fonts.dart';
 import 'package:flutter/material.dart';
+import 'package:memberapp/components/monthselect.dart';
 
 Future notifyPanel(BuildContext context, String type, String title, String msg,
     String btn1, String btn2, Function fbt1, Function fbtn2,
@@ -156,4 +157,28 @@ Future notifyPanel(BuildContext context, String type, String title, String msg,
               )
             ]);
       });
+}
+
+Future callMonthSelect(BuildContext context, Function completefn, String year,
+    String month, String monthdisp, String buttonname) {
+  return showDialog(
+      context: context,
+      barrierColor: Colors.transparent,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            MonthSelect(
+              completefn: completefn,
+              year: year,
+              month: month,
+              monthdisp: monthdisp,
+              buttonname: buttonname,
+            )
+          ],
+        );
+      });
+  ;
 }
