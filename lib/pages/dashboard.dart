@@ -6,6 +6,7 @@ import 'package:memberapp/login.dart';
 import 'package:memberapp/pages/activities.dart';
 import 'package:memberapp/pages/affiliation.dart';
 import 'package:memberapp/pages/bills.dart';
+import 'package:memberapp/pages/eventpage.dart';
 import 'package:memberapp/pages/payments.dart';
 import 'package:memberapp/pages/profile.dart';
 import 'package:memberapp/pages/statement.dart';
@@ -103,7 +104,8 @@ class _DashboardState extends State<Dashboard> {
             ),
           ),
           child: Padding(
-            padding:  EdgeInsetsDirectional.fromSTEB(15, topMargin, 15, bottomMargin),
+            padding:
+                EdgeInsetsDirectional.fromSTEB(15, topMargin, 15, bottomMargin),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -646,6 +648,74 @@ class _DashboardState extends State<Dashboard> {
                               duration: const Duration(milliseconds: 200),
                               reverseDuration:
                                   const Duration(milliseconds: 200),
+                              child: const EventPage(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          height: 100,
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF181818),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                15, 15, 15, 15),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Image.asset(
+                                  'media/planner.png',
+                                  width: 100,
+                                  height: 100,
+                                  fit: BoxFit.contain,
+                                ),
+                                Expanded(
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            15, 0, 0, 0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Events',
+                                          style: ed18,
+                                        ),
+                                        Text(
+                                          'Upcoming events details',
+                                          style: w7514,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+                    child: Material(
+                      color: const Color(0xFF181818),
+                      borderRadius: BorderRadius.circular(5),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            PageTransition(
+                              type: PageTransitionType.leftToRight,
+                              duration: const Duration(milliseconds: 200),
+                              reverseDuration:
+                                  const Duration(milliseconds: 200),
                               child: const Webview(
                                 title: 'Belgaum Club',
                                 url: 'https://www.belgaumclub.in/',
@@ -690,7 +760,7 @@ class _DashboardState extends State<Dashboard> {
                                           style: ed18,
                                         ),
                                         Text(
-                                          'Track your activities',
+                                          'Club Website',
                                           style: w7514,
                                         ),
                                       ],
