@@ -78,6 +78,9 @@ String datetime(tab, cudate) {
     case "monthdtyear":
       out = DateFormat('yMMMMd').format(datetime);
       break;
+    case "odate":
+      out = DateFormat('dd').format(datetime);
+      break;
   }
 
   return out;
